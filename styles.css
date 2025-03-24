@@ -1,0 +1,657 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0d1117, #161b22);
+  margin: 0;
+  padding: 20px;
+  color: #c9d1d9;
+  overflow-x: hidden;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Center the main container */
+.container {
+  max-width: 800px;
+  margin: 0 auto; /* Center horizontally */
+  background: rgba(22, 27, 34, 0.4);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative; /* Ensure it stays in place */
+  z-index: 1; /* Ensure it's above the particles */
+}
+
+/* Remove margin adjustments for the container */
+.container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+h1 {
+  text-align: center;
+  color: #c9d1d9;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Credit Footer */
+footer {
+  position: fixed; /* Fixed position to keep it immovable */
+  left: 20px; /* Position at the bottom-left corner */
+  bottom: 20px;
+  color: rgba(255, 255, 255, 0.7); /* Semi-transparent text */
+  font-size: 0.9rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1000; /* Ensure it stays above other elements */
+  padding: 8px 12px;
+  backdrop-filter: blur(5px); /* Glassy effect */
+}
+
+/* Form Styles */
+#project-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#project-name {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(13, 17, 23, 0.6);
+  color: #c9d1d9;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#project-name:focus {
+  border-color: #238636;
+  box-shadow: 0 0 8px rgba(35, 134, 54, 0.4);
+  outline: none;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 15px; /* Add spacing between buttons */
+  margin-bottom: 20px;
+}
+
+/* Base Button Styles */
+button {
+  padding: 10px 18px; /* Smaller padding */
+  background: rgba(35, 134, 54, 0.8); /* Semi-transparent green */
+  color: #fff;
+  border: none;
+  border-radius: 20px; /* Rounder buttons */
+  cursor: pointer;
+  font-size: 0.9rem; /* Smaller font size */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden; /* For the hover effect */
+}
+
+/* Hover Effect */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2); /* Ripple effect background */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0); /* Start small */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+button:hover::after {
+  transform: translate(-50%, -50%) scale(1); /* Expand on hover */
+  opacity: 1;
+}
+
+/* Button Hover State */
+button:hover {
+  background: rgba(46, 160, 67, 0.9); /* Slightly brighter green */
+  transform: translateY(-3px); /* Lift button on hover */
+  box-shadow: 0 4px 15px rgba(35, 134, 54, 0.4); /* Add shadow */
+}
+
+/* Button Active State (when clicked) */
+button:active {
+  transform: translateY(0); /* Reset lift */
+  box-shadow: 0 2px 8px rgba(35, 134, 54, 0.4); /* Smaller shadow */
+}
+
+/* Export and Import Buttons */
+#export-projects,
+#import-projects {
+  background: rgba(31, 111, 235, 0.8); /* Semi-transparent blue */
+}
+
+#export-projects:hover,
+#import-projects:hover {
+  background: rgba(44, 129, 255, 0.9); /* Slightly brighter blue */
+  box-shadow: 0 4px 15px rgba(31, 111, 235, 0.4); /* Blue shadow */
+}
+
+/* Project List Styles */
+#project-list {
+  margin-top: 20px;
+}
+
+.project {
+  background: rgba(33, 38, 45, 0.4); /* More transparency */
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px); /* Blur effect for cards */
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.project h3 {
+  margin: 0;
+  color: #c9d1d9;
+  font-size: 1.5rem;
+  
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(48, 54, 61, 0.6);
+  border-radius: 5px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #238636;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Task Form Adjustments */
+.task-form {
+  margin-top: 20px; /* Increased distance from the project title */
+  display: flex;
+  gap: 10px; /* Add spacing between inputs and button */
+  align-items: center;
+}
+
+.task-form input {
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px; /* Rounder inputs */
+  background: rgba(13, 17, 23, 0.6);
+  color: #c9d1d9;
+  font-size: 0.9rem; /* Smaller font size */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-form input:focus {
+  border-color: #238636;
+  box-shadow: 0 0 8px rgba(35, 134, 54, 0.4);
+  outline: none;
+}
+
+.task-form button {
+  padding: 8px 15px; /* Smaller padding */
+  background: #1f6feb;
+  border-radius: 20px; /* Rounder button */
+}
+
+.task-form button:hover {
+  background: #2c81ff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li button {
+  background: rgba(248, 81, 73, 0.8); /* Semi-transparent red */
+  padding: 4px 8px; /* Smaller padding */
+  border-radius: 20px; /* Rounder buttons */
+}
+
+li button:hover {
+  background: rgba(255, 106, 99, 0.9); /* Slightly brighter red */
+  box-shadow: 0 4px 15px rgba(248, 81, 73, 0.4); /* Red shadow */
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #8b949e;
+}
+
+.deadline {
+  font-size: 0.9rem;
+  color: #8b949e;
+  margin-left: 10px;
+}
+
+.overdue {
+  border-left: 3px solid #f85149;
+  padding-left: 10px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(22, 27, 34, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Dragging Feedback */
+li.dragging {
+  opacity: 0.8;
+  background: #003161; /* Semi-transparent yellow */
+  border: 1px dashed rgba(255, 204, 0, 0.6); /* Dashed border */
+  transform: scale(1.1); /* Slightly larger */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Base Task Styles */
+li {
+  background: rgba(33, 38, 45, 0.4); /* Semi-transparent background */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.1); /* Lighten on hover */
+}
+
+/* Progress Container */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+/* Progress Bar */
+.progress-bar {
+  flex: 1;
+  height: 10px;
+  background: rgba(48, 54, 61, 0.6);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+/* Progress Text */
+.progress-text {
+  font-size: 0.9rem;
+  color: #c9d1d9;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba(22, 27, 34, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Adjust padding for the scrollable section */
+.scrollable-section {
+  padding: 10px; /* Add padding to avoid overlap */
+}
+
+/* Smooth Transition for Main Container */
+.container {
+  margin-left: 270px; /* Default margin */
+  max-width: 700px;
+  margin-right: auto;
+  background: rgba(22, 27, 34, 0.4);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: margin-left 0.3s ease; /* Smooth transition for margin */
+}
+
+#logo{
+  font-family: 'Orbitron', sans-serif; /* Techy font */
+  font-weight: bolder; /* Medium weight */
+  color: #c9d1d9;
+  margin-left: 10;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+#logo:hover{
+  transform: scale(1.05); /* Slightly expand */
+  color: #E2F1E7;
+}
+
+/* Project Items in Sidebar */
+.project-item {
+
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Project Items */
+.project-item:hover {
+  background: rgba(33, 38, 45, 0.6);
+  transform: scale(1.05); /* Slightly expand */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); /* Add a glow effect */
+}
+
+/* Ensure text doesn't overflow on hover */
+.project-item h3 {
+  font-weight: 300; /* Thinner font weight */
+  font-size: 1.2rem; /* Smaller font size */
+  margin: 0;
+  color: #c9d1d9;
+  font-size: 1rem;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(13, 17, 23, 0.6);
+  color: #c9d1d9;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search-input:focus {
+  border-color: #238636;
+  box-shadow: 0 0 8px rgba(35, 134, 54, 0.4);
+  outline: none;
+}
+
+#search-button {
+  padding: 10px 20px;
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#search-button:hover {
+  background: #2c81ff;
+}
+
+/* Dashboard */
+.dashboard {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 250px;
+  background: rgba(22, 27, 34, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+}
+
+.dashboard h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #c9d1d9;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-item {
+  background: rgba(33, 38, 45, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  color: #c9d1d9;
+  font-weight: 500;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  background: rgba(35, 134, 54, 0.2); /* Very transparent background */
+  border: none;
+  color: rgba(255, 255, 255, 0.5); /* Semi-transparent icon */
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  opacity: 1; /* Initially hidden */
+}
+
+/* Show the button on hover */
+.sidebar:hover .sidebar-toggle,
+.dashboard:hover .sidebar-toggle {
+  opacity: 1; /* Fully visible */
+}
+
+/* Hover effect for the button */
+.sidebar-toggle:hover {
+  background: rgba(46, 160, 67, 0.8); /* More opaque on hover */
+  color: rgba(255, 255, 255, 1); /* Fully visible icon */
+}
+
+/* Left Sidebar Toggle Button */
+.sidebar .sidebar-toggle {
+  right: -40px; /* Position outside the sidebar */
+}
+
+/* Right Sidebar Toggle Button */
+.dashboard .sidebar-toggle {
+  left: -40px; /* Position outside the dashboard */
+}
+
+/* Sidebar and Dashboard Hide/Show Animation */
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.dashboard.hidden {
+  transform: translateX(100%);
+}
+
+.sidebar, .dashboard {
+  transition: transform 0.3s ease;
+}
+
+#projectName{
+  font-weight: 300; /* Thinner font weight */
+  font-size: 1.2rem; /* Smaller font size */
+}
+
+/* Scrollable Section in Sidebar */
+.scrollable-section {
+  height: calc(100vh - 150px); /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Add some padding to avoid overlap with scrollbar */
+}
+
+/* Custom Scrollbar for Scrollable Section */
+.scrollable-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-section::-webkit-scrollbar-track {
+  background: rgba(22, 27, 34, 0.4);
+}
+
+.scrollable-section::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Sort Button Container */
+.sort-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Sort Button */
+#sort-button {
+  padding: 10px 18px;
+  background: rgba(35, 134, 54, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#sort-button:hover {
+  background: rgba(46, 160, 67, 0.9);
+}
+
+/* Sort Options (Hidden by Default) */
+.sort-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(22, 27, 34, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 10px;
+  min-width: 200px;
+}
+
+.sort-options button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: rgba(33, 38, 45, 0.6);
+  border: none;
+  color: #c9d1d9;
+  text-align: left;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sort-options button:hover {
+  background: rgba(46, 160, 67, 0.8);
+}
+
+/* Show Sort Options on Hover */
+.sort-button-container:hover .sort-options {
+  display: block;
+}
+
+/* Hide Projects Button */
+#hide-projects-button {
+  padding: 10px 18px;
+  background: rgba(248, 81, 73, 0.8); /* Red color for visibility */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#hide-projects-button:hover {
+  background: rgba(255, 106, 99, 0.9); /* Brighter red on hover */
+}
